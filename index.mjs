@@ -10,8 +10,9 @@
 //            (~/.dsh/.credentials.yaml, refs.WEBSEARCH_API_KEY then
 //            refs.ANYSEARCH_API_KEY) > none
 //
-// Plugin options are set with:  magpie plugin options <name> '<json>'
-// e.g. magpie plugin options <name> '{"preset":"tavily","apiKey":"tvly-…"}'
+// Plugin options are set with:  magpie plugin options <install spec> '<json>'
+// e.g. magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"tavily","apiKey":"tvly-…"}'
+// New options apply on plugin reload (magpie plugin off/on) or magpie restart.
 //
 // Zero dependencies; tool args are plain JSON Schema.
 
@@ -23,9 +24,8 @@ import { PRESETS, getPreset } from './providers.mjs'
 const TIMEOUT_MS = 55_000
 const CONTENT_CAP = 4000 // per-result content chars, keeps tool answers small
 
-// The factory's second argument is this plugin's options object, as set with
-// `magpie plugin options <name> '<json>'`. Environment and the DSH store are
-// read per call.
+// The factory's second argument is this plugin's options object, captured when
+// the plugin loads; environment and the DSH store are read per call.
 function readConfig(options) {
   const opt = options ?? {}
   const presetId = String(opt.preset ?? process.env.WEBSEARCH_PRESET ?? 'anysearch').trim()

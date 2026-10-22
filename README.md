@@ -28,13 +28,13 @@ magpie plugin        # lists the plugin and its tools
 
 ## Configure
 
-Set the preset and credentials after installation:
+Set the preset and credentials after installation (the plugin name is the install spec as `magpie plugin` lists it):
 
 ```sh
-magpie plugin options <name> '{"preset":"anysearch","apiKey":"as_sk_…"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"anysearch","apiKey":"as_sk_…"}'
 ```
 
-`<name>` is the plugin as `magpie plugin` lists it. All fields are optional when the defaults fit:
+New options reach the plugin after `magpie plugin off`/`on` or a magpie restart. On Windows PowerShell the inner quotes need escaping — `'{\"preset\":\"anysearch\"}'` — or set the options in magpie's Plugins page instead. All fields are optional when the defaults fit:
 
 | Option | Default | Meaning |
 |---|---|---|
@@ -44,7 +44,7 @@ magpie plugin options <name> '{"preset":"anysearch","apiKey":"as_sk_…"}'
 
 Resolution per call, first match wins:
 
-1. **Plugin options** — `magpie plugin options <name> '<json>'`
+1. **Plugin options** — `magpie plugin options github:thdjjsn/magpie-tools-websearch '<json>'`
 2. **Environment** — `WEBSEARCH_PRESET` / `WEBSEARCH_BASE_URL` / `WEBSEARCH_API_KEY`
 3. **DSH credential store** — `refs.WEBSEARCH_API_KEY`, then `refs.ANYSEARCH_API_KEY`, in `~/.dsh/.credentials.yaml` (shares one key with DeepSeek Harness)
 4. No key → AnySearch anonymous quota; other providers ask for a key with the exact command to run
@@ -68,13 +68,13 @@ The `anysearch` preset is live-tested. The others follow each vendor's public AP
 
 ```sh
 # AnySearch with vertical search and URL extract
-magpie plugin options <name> '{"preset":"anysearch","apiKey":"as_sk_…"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"anysearch","apiKey":"as_sk_…"}'
 
 # Tavily
-magpie plugin options <name> '{"preset":"tavily","apiKey":"tvly-…"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"tavily","apiKey":"tvly-…"}'
 
 # A self-hosted SearXNG
-magpie plugin options <name> '{"preset":"searxng","baseURL":"https://searx.example.com"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"searxng","baseURL":"https://searx.example.com"}'
 ```
 
 ## Add a preset

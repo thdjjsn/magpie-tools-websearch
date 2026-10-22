@@ -28,13 +28,13 @@ magpie plugin        # 应列出本插件及其工具
 
 ## 配置
 
-安装后设置服务商与凭据：
+安装后设置服务商与凭据（插件名以 `magpie plugin` 的输出为准，git 安装即安装地址）：
 
 ```sh
-magpie plugin options <插件名> '{"preset":"anysearch","apiKey":"as_sk_…"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"anysearch","apiKey":"as_sk_…"}'
 ```
 
-`<插件名>` 以 `magpie plugin` 的输出为准。默认值合适时所有字段都可省略：
+新配置在 `magpie plugin off`/`on` 或重启 Magpie 后生效。Windows PowerShell 里内层引号需要转义——`'{\"preset\":\"anysearch\"}'`——也可以直接在 Magpie 的插件页面里填。默认值合适时所有字段都可省略：
 
 | 配置项 | 默认值 | 含义 |
 |---|---|---|
@@ -44,7 +44,7 @@ magpie plugin options <插件名> '{"preset":"anysearch","apiKey":"as_sk_…"}'
 
 每次调用按以下顺序解析，先命中者优先：
 
-1. **插件 options**——`magpie plugin options <插件名> '<json>'`
+1. **插件 options**——`magpie plugin options github:thdjjsn/magpie-tools-websearch '<json>'`
 2. **环境变量**——`WEBSEARCH_PRESET` / `WEBSEARCH_BASE_URL` / `WEBSEARCH_API_KEY`
 3. **DSH 凭据库**——`~/.dsh/.credentials.yaml` 里的 `refs.WEBSEARCH_API_KEY`，其次是 `refs.ANYSEARCH_API_KEY`（与 DeepSeek Harness 共用一把 key）
 4. 都没有：AnySearch 用匿名额度；其他服务商会返回缺少密钥的提示与应执行的命令
@@ -68,13 +68,13 @@ magpie plugin options <插件名> '{"preset":"anysearch","apiKey":"as_sk_…"}'
 
 ```sh
 # AnySearch：含垂直搜索与正文抓取
-magpie plugin options <插件名> '{"preset":"anysearch","apiKey":"as_sk_…"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"anysearch","apiKey":"as_sk_…"}'
 
 # Tavily
-magpie plugin options <插件名> '{"preset":"tavily","apiKey":"tvly-…"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"tavily","apiKey":"tvly-…"}'
 
 # 自建 SearXNG
-magpie plugin options <插件名> '{"preset":"searxng","baseURL":"https://searx.example.com"}'
+magpie plugin options github:thdjjsn/magpie-tools-websearch '{"preset":"searxng","baseURL":"https://searx.example.com"}'
 ```
 
 ## 新增 preset
