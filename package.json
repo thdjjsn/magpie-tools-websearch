@@ -1,0 +1,11 @@
+{
+  "name": "tools-websearch",
+  "version": "0.1.0",
+  "description": "Web search, URL extract and vertical-domain tools for every agent, through magpie's MCP server. Presets: AnySearch, Tavily, Exa, Brave, SearXNG, Firecrawl.",
+  "type": "module",
+  "main": "./index.mjs",
+  "exports": "./index.mjs",
+  "files": ["index.mjs", "providers.mjs", "README.md", "README.zh-CN.md", "LICENSE"],
+  "keywords": ["magpie", "magpie-tools", "mcp", "web-search", "anysearch", "tavily", "exa", "brave", "searxng", "firecrawl", "opencode-plugin"],
+  "license": "MIT"
+}
