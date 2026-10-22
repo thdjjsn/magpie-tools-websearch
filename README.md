@@ -8,21 +8,23 @@ Zero dependencies. Plain JSON Schema arguments. Requires magpie v0.1.1260 or lat
 
 ## Tools
 
+Each tool name carries the plugin prefix, which magpie derives from the install name (repository name for git installs, with a leading `tools-` stripped). Installed from `github:<owner>/magpie-tools-websearch` the tools are:
+
 | Tool | What it does | Presets |
 |---|---|---|
-| `websearch_search` | Web search; with AnySearch, vertical search via `tag` + `params` | all |
-| `websearch_fetch` | Fetch a URL, return its cleaned main content | anysearch, tavily, exa, firecrawl |
-| `websearch_capabilities` | Discover vertical-search domains and their parameters | anysearch |
-| `websearch_config` | Show the effective preset, base URL and key source (never the key) | all |
+| `magpie-tools-websearch_search` | Web search; with AnySearch, vertical search via `tag` + `params` | all |
+| `magpie-tools-websearch_fetch` | Fetch a URL, return its cleaned main content | anysearch, tavily, exa, firecrawl |
+| `magpie-tools-websearch_capabilities` | Discover vertical-search domains and their parameters | anysearch |
+| `magpie-tools-websearch_config` | Show the effective preset, base URL and key source (never the key) | all |
+
+Prefer short names like `websearch_search`? Rename the repository to `tools-websearch` and magpie derives the shorter prefix.
 
 ## Install
 
 ```sh
-magpie plugin add github:<owner>/tools-websearch
+magpie plugin add github:<owner>/magpie-tools-websearch
 magpie plugin        # lists the plugin and its tools
 ```
-
-Keep the repository name `tools-websearch`: magpie derives the tool prefix from it (`tools-websearch` → `websearch_*`).
 
 ## Configure
 
@@ -47,7 +49,7 @@ Resolution per call, first match wins:
 3. **DSH credential store** — `refs.WEBSEARCH_API_KEY`, then `refs.ANYSEARCH_API_KEY`, in `~/.dsh/.credentials.yaml` (shares one key with DeepSeek Harness)
 4. No key → AnySearch anonymous quota; other providers ask for a key with the exact command to run
 
-Verify the result with the `websearch_config` tool from any connected agent.
+Verify the result with the `*_config` tool from any connected agent.
 
 ## Presets
 

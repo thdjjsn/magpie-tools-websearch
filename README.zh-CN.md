@@ -8,21 +8,23 @@
 
 ## 工具
 
+工具名带插件前缀，前缀由 Magpie 按安装名推导（git 安装取仓库名，并剥离开头的 `tools-`）。从 `github:<owner>/magpie-tools-websearch` 安装时工具名为：
+
 | 工具 | 作用 | 适用 preset |
 |---|---|---|
-| `websearch_search` | 网页搜索；AnySearch 下可用 `tag` + `params` 走垂直领域搜索 | 全部 |
-| `websearch_fetch` | 抓取一个 URL，返回清洗后的正文 | anysearch、tavily、exa、firecrawl |
-| `websearch_capabilities` | 发现垂直搜索领域及其参数定义 | anysearch |
-| `websearch_config` | 查看当前生效的 preset、baseURL 与密钥来源（永不显示密钥本身） | 全部 |
+| `magpie-tools-websearch_search` | 网页搜索；AnySearch 下可用 `tag` + `params` 走垂直领域搜索 | 全部 |
+| `magpie-tools-websearch_fetch` | 抓取一个 URL，返回清洗后的正文 | anysearch、tavily、exa、firecrawl |
+| `magpie-tools-websearch_capabilities` | 发现垂直搜索领域及其参数定义 | anysearch |
+| `magpie-tools-websearch_config` | 查看当前生效的 preset、baseURL 与密钥来源（永不显示密钥本身） | 全部 |
+
+想要 `websearch_search` 这样的短名：把仓库改名为 `tools-websearch`，Magpie 会推导出短前缀。
 
 ## 安装
 
 ```sh
-magpie plugin add github:<owner>/tools-websearch
+magpie plugin add github:<owner>/magpie-tools-websearch
 magpie plugin        # 应列出本插件及其工具
 ```
-
-仓库名请保持 `tools-websearch`：Magpie 按仓库名推导工具前缀（`tools-websearch` → `websearch_*`）。
 
 ## 配置
 
@@ -47,7 +49,7 @@ magpie plugin options <插件名> '{"preset":"anysearch","apiKey":"as_sk_…"}'
 3. **DSH 凭据库**——`~/.dsh/.credentials.yaml` 里的 `refs.WEBSEARCH_API_KEY`，其次是 `refs.ANYSEARCH_API_KEY`（与 DeepSeek Harness 共用一把 key）
 4. 都没有：AnySearch 用匿名额度；其他服务商会返回缺少密钥的提示与应执行的命令
 
-配置完成后，可在任意接入的 agent 里调用 `websearch_config` 工具自检。
+配置完成后，可在任意接入的 agent 里调用 `*_config` 工具自检。
 
 ## 各 preset 一览
 
