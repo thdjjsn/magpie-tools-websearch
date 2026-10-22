@@ -8,7 +8,7 @@
 
 ## 工具
 
-工具名带插件前缀，前缀由 Magpie 按安装名推导（git 安装取仓库名，并剥离开头的 `tools-`）。从 `github:<owner>/magpie-tools-websearch` 安装时工具名为：
+工具名带插件前缀，前缀由 Magpie 按安装名推导（git 安装取仓库名，并剥离开头的 `tools-`）。从 `github:thdjjsn/magpie-tools-websearch` 安装时工具名为：
 
 | 工具 | 作用 | 适用 preset |
 |---|---|---|
@@ -22,7 +22,7 @@
 ## 安装
 
 ```sh
-magpie plugin add github:<owner>/magpie-tools-websearch
+magpie plugin add github:thdjjsn/magpie-tools-websearch
 magpie plugin        # 应列出本插件及其工具
 ```
 

@@ -8,7 +8,7 @@ Zero dependencies. Plain JSON Schema arguments. Requires magpie v0.1.1260 or lat
 
 ## Tools
 
-Each tool name carries the plugin prefix, which magpie derives from the install name (repository name for git installs, with a leading `tools-` stripped). Installed from `github:<owner>/magpie-tools-websearch` the tools are:
+Each tool name carries the plugin prefix, which magpie derives from the install name (repository name for git installs, with a leading `tools-` stripped). Installed from `github:thdjjsn/magpie-tools-websearch` the tools are:
 
 | Tool | What it does | Presets |
 |---|---|---|
@@ -22,7 +22,7 @@ Prefer short names like `websearch_search`? Rename the repository to `tools-webs
 ## Install
 
 ```sh
-magpie plugin add github:<owner>/magpie-tools-websearch
+magpie plugin add github:thdjjsn/magpie-tools-websearch
 magpie plugin        # lists the plugin and its tools
 ```
 
